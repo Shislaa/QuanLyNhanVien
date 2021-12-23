@@ -56,9 +56,11 @@ public class QuanLyNhanSuController {
 				if("NV".equals(((NhanSu) danhSachNhanSu.get(i)).getRole())) {
 					NhanVien nVTemp = (NhanVien) danhSachNhanSu.get(i);
 					if(null != nVTemp.getTruongPhongQuanLy()) {
-						int soNV = nVTemp.getTruongPhongQuanLy().getSoNhanVien();
+//						int soNV = nVTemp.getTruongPhongQuanLy().getSoNhanVien();
+//						int indxTP = getIndex(nVTemp.getTruongPhongQuanLy().getMaSo());
+//						((TruongPhong) danhSachNhanSu.get(indxTP)).setSoNhanVien(soNV - 1);
 						int indxTP = getIndex(nVTemp.getTruongPhongQuanLy().getMaSo());
-						((TruongPhong) danhSachNhanSu.get(indxTP)).setSoNhanVien(soNV - 1);
+						((TruongPhong) danhSachNhanSu.get(indxTP)).xoaNhanVien(nVTemp.getMaSo());
 					}
 				}
 				else if("TP".equals(((NhanSu) danhSachNhanSu.get(i)).getRole())) {
@@ -122,9 +124,10 @@ public class QuanLyNhanSuController {
 				return;
 			}
 			((NhanVien) danhSachNhanSu.get(indexNV)).setTruongPhongQuanLy((TruongPhong)danhSachNhanSu.get(indexTP));
-			System.out.println("Đã phân bổ nhân viên thành công");
-			int soNVofTP = ((TruongPhong) danhSachNhanSu.get(indexTP)).getSoNhanVien();
-			((TruongPhong) danhSachNhanSu.get(indexTP)).setSoNhanVien(soNVofTP + 1);
+//			System.out.println("Đã phân bổ nhân viên thành công");
+//			int soNVofTP = ((TruongPhong) danhSachNhanSu.get(indexTP)).getSoNhanVien();
+//			((TruongPhong) danhSachNhanSu.get(indexTP)).setSoNhanVien(soNVofTP + 1);
+			((TruongPhong) danhSachNhanSu.get(indexTP)).addNhanVien((NhanVien) danhSachNhanSu.get(indexNV));
 		}
 		else {
 			System.out.println("Mã số không hợp lệ");
