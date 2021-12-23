@@ -8,7 +8,8 @@ import oop.p2.view.QuanLyNhanSuConsole;
 
 public class MainProgram {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 		QuanLyNhanSuConsole quanLyNhanSuConsole = new QuanLyNhanSuConsole();
 		quanLyNhanSuConsole.start();
 	}

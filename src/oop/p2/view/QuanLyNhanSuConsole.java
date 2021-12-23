@@ -20,11 +20,16 @@ public class QuanLyNhanSuConsole {
 		sc = new Scanner(System.in);
 	}
 	
-	public void start() {
-		int option;
+	public void start(){
+		int option = -1;
 		do {
 			inMenu();
-			option = Integer.parseInt(sc.nextLine());
+			try {
+				option = Integer.parseInt(sc.nextLine());
+			}
+			catch(NumberFormatException e) {
+				
+			}
 		} while(xuLyMenu(option));
 	}
 	
@@ -138,8 +143,13 @@ public class QuanLyNhanSuConsole {
 		System.out.println("\t2. Thêm Trưởng Phòng");
 		System.out.println("\t3. Thêm Giám Đốc");
 		System.out.print("Lựa chọn: ");
-		int option = Integer.parseInt(sc.nextLine());
-		
+		int option = -1;
+		try {
+			option = Integer.parseInt(sc.nextLine());
+		}
+		catch(NumberFormatException e) {
+			
+		}
 		switch (option) {
 			// Thêm Nhân viên
 			case 1: {
